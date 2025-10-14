@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gravity Consultancy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="img/8471104-hd_1280_720_25fps.mp4" type="video/mp4">
+  </video>
+
+<header class="site-header">  
+  <div class="brand">
+    <a href="#" class="logo">
+      <img src="img/gravity consultancy logo.png" alt="Gravity Consultancy Logo" />
+      <div class="logo-text">
+        Gravity <span>Consultancy</span>
+      </div>
+    </a>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#hero">Home</a>
+    <a href="#gallery">Plans</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button id="menuBtn" class="menu-btn" aria-label="menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <h1>Elegant Home Designs<br><span>Crafted for Modern Living</span></h1>
+        <p class="lead">Timeless architecture. Bespoke floor plans. Luxurious finishes designed to elevate everyday living.</p>
+        <div class="hero-cta">
+          <a href="#gallery" class="btn btn-primary">Explore Site Plans</a>
+          <a href="#contact" class="btn btn-ghost">Request Consultation</a>
+        </div>
+      </div>
+      <div class="hero-accent"></div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title">Featured Home Plans</h2>
+        <p class="section-sub">A curated selection of signature plans — click any card to view details and larger images.</p>
+
+        <div class="filters">
+          <a class="filter active" data-filter="all">All</a>
+          <a href="/index1.html" class="filter" data-filter="modern">Modern</a>
+          <a href="/index2.html" class="filter" data-filter="farmhouse">Farmhouse</a>
+          <a href="/index3.html" class="filter" data-filter="compact">Compact</a>
+        </div>
+
+        <div class="grid" id="plansGrid">
+          <article class="card" data-type="modern">
+            <div class="card-media">
+              <img src="img/img1.jpg" alt="The Aurora plan">
+              <div class="card-badge">3200 sq ft</div>
+            </div>
+            <div class="card-body">
+              <h3>The Aurora</h3>
+              <p>Open-plan living, double-height foyer, integrated terrace and pool-ready layout.</p>
+              <a class="card-more" href="index1.html">View</a>
+            </div>
+          </article>
+
+          <article class="card" data-type="farmhouse">
+            <div class="card-media">
+              <img src="img/img2.jpg" alt="Willow Cottage plan">
+              <div class="card-badge">2100 sq ft</div>
+            </div>
+            <div class="card-body">
+              <h3>Willow Cottage</h3>
+              <p>Cozy family layout with broad verandas and warm, rustic finishes.</p>
+              <a class="card-more" href="index2.html">View</a>
+            </div>
+          </article>
+
+          <article class="card" data-type="compact">
+            <div class="card-media">
+              <img src="img/img3.jpg" alt="Urban Nest plan">
+              <div class="card-badge">1200 sq ft</div>
+            </div>
+            <div class="card-body">
+              <h3>Urban Nest</h3>
+              <p>Smart compact design for city plots — high utility, natural light, modern finishes.</p>
+              <a class="card-more" href="index3.html">View</a>
+            </div>
+          </article>
+
+          <article class="card" data-type="modern">
+            <div class="card-media">
+              <img src="img/img4.jpg" alt="Skyline Villa plan">
+              <div class="card-badge">4500 sq ft</div>
+            </div>
+            <div class="card-body">
+              <h3>Skyline Villa</h3>
+              <p>Luxurious multi-level villa with rooftop terrace and panoramic glazing.</p>
+              <a class="card-more" href="index4.html">View</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+      <div class="container split">
+        <div class="about-media">
+          <img src="img/img5.jpg" alt="architect at work">
+        </div>
+        <div class="about-content">
+          <h2>About Gravity Consultancy</h2>
+          <p>We are an atelier of architects and interior designers focused on creating homes that feel luxurious, effortless, and built for the way you live.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-wrap">
+        <div class="contact-left">
+          <h2>Request a Consultation</h2>
+          <p>Tell us about your vision and we'll prepare a tailored proposal and initial sketch within 48 hours.</p>
+          <div class="contact-meta">
+            <div><strong>Email</strong><br><a href="mailto:gravitycon04@gmail.com">gravitycon04@gmail.com</a></div>
+            <div><strong>Phone</strong><br><a href="tel:+919932253566">+91 9932253566</a></div>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/911234567890" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xnngorgw" method="POST" novalidate>
+          <label><span>Your name</span><input type="text" name="name" id="name" required></label>
+          <label><span>Email</span><input type="email" name="email" id="email" required></label>
+          <label><span>Project details</span><textarea name="message" id="message" rows="5" required></textarea></label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send Request</button>
+            <button type="reset" class="btn btn-ghost">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ FIXED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="img/gravity consultancy logo.png" alt="Gravity Consultancy logo">
+          <p>Designing dreams into reality with precision, elegance, and trust.</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">Vision & Mission</a></li>
+            <li><a href="#gallery">Services</a></li>
+            <li><a href="#contact">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-services">
+          <h3>Our Services</h3>
+          <ul>
+            <li>Construction</li>
+            <li>Building Planning</li>
+            <li>Interior & Exterior</li>
+            <li>Land Survey</li>
+            <li>Estimates</li>
+            <li>Land Registration & Conversion</li>
+          </ul>   
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p><strong>Phone:</strong> +91 9775162901</p>
+          <p><strong>Address:</strong><br>Amar - Ahmadpur Road, Bolpur, West Bengal 731204, India</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3654.1622087604633!2d87.69786069999999!3d23.670156499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQwJzEyLjYiTiA4N8KwNDEnNTIuMyJF!5e0!3m2!1sen!2sin!4v1760422797572!5m2!1sen!2sin"></iframe>
+        <p>© <span id="year"></span> Gravity Consultancy — All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
