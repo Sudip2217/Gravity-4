@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ==========================
-     NAVBAR TOGGLE (Responsive)
-     ========================== */
+//NAVBAR TOGGLE (Responsive)
+   
   const menuBtn = document.getElementById('menuBtn');
   const nav = document.getElementById('nav');
 
