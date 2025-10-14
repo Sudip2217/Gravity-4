@@ -49,9 +49,74 @@ backdrop-filter:blur(6px);position:sticky;top:0;z-index:20;border-bottom:1px sol
 .nav a{text-decoration:none;color:var(--muted);font-weight:600;transition:all .25s;}
 .nav a:hover{color:var(--accent);transform:translateY(-2px);}
 
-/* Menu button (mobile) */
-.menu-btn{display:none;background:transparent;border:0;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;}
-.menu-btn span{display:block;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:3px;margin:5px 0;transition:all .25s;width:20px;}
+/* Menu button (hamburger) */
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 30;
+}
+
+.menu-btn span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger when active */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navbar for mobile/tablet */
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -300px; /* hidden by default */
+    height: 100vh;
+    width: 260px;
+    background: rgba(3,6,10,0.96);
+    flex-direction: column;
+    padding: 80px 20px;
+    gap: 20px;
+    transition: right 0.3s ease;
+    border-radius: 0 0 0 10px;
+    z-index: 25;
+  }
+
+  .nav.show {
+    right: 0; /* slide in from right */
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+}
 
 /* HERO */
 .hero{
