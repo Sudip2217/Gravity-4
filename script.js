@@ -100,3 +100,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contactForm");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      try {
+        // Disable button during submission
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        // Send form data to Google Apps Script
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          showSuccessMessage(contactForm, "✅ Thank you! Your message has been sent successfully.");
+          contactForm.reset();
+        } else {
+          showSuccessMessage(contactForm, "⚠️ Something went wrong. Please try again later.", true);
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        showSuccessMessage(contactForm, "❌ Network error. Please try again.", true);
+      } finally {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Request";
+      }
+    });
+
+    // Reset Button Functionality
+    const resetBtn = contactForm.querySelector('button[type="reset"]');
+    resetBtn.addEventListener("click", () => {
+      contactForm.reset();
+      const msg = contactForm.querySelector(".success-message");
+      if (msg) msg.remove();
+    });
+  }
+
+  // Helper Function: Show success or error message
+  function showSuccessMessage(form, message, isError = false) {
+    // Remove previous messages
+    const oldMsg = form.querySelector(".success-message");
+    if (oldMsg) oldMsg.remove();
+
+    const msg = document.createElement("div");
+    msg.classList.add("success-message");
+    msg.textContent = message;
+
+    if (isError) msg.classList.add("error");
+
+    form.appendChild(msg);
+
+    // Auto fade out
+    setTimeout(() => {
+      msg.classList.add("fade-out");
+      setTimeout(() => msg.remove(), 600);
+    }, 4000);
+  }
+});
+
