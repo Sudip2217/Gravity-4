@@ -168,3 +168,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 4000);
   }
 });
+
+//Add Auto Slide + Manual Arrow JavaScript
+let slides = document.querySelectorAll(".hero-slider .slide");
+let current = 0;
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+// Auto Slide (every 3 sec)
+setInterval(() => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}, 6000);
+
+// Manual Arrows
+document.getElementById("arrowLeft").onclick = () => {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+};
+
+document.getElementById("arrowRight").onclick = () => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+};
