@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Request Quotation — Gravity Consultancy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="img/8471104-hd_1280_720_25fps.mp4" type="video/mp4">
+  </video>
+
+  <header class="site-header">  
+    <div class="brand">
+      <a href="index.html" class="logo">
+        <img src="img/gravity consultancy logo.png" alt="Gravity Consultancy Logo" />
+        <div class="logo-text">
+          Gravity <span>Consultancy</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#gallery">Plans</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <button id="menuBtn" class="menu-btn" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Request a Quotation</h1>
+        <p>Please fill out the form below to request a quotation for your project</p>
+      </div>
+      
+      <div class="form-wrapper">
+        <iframe 
+          src="https://forms.gle/oQYGh249f33ZDssd6?embedded=true" 
+          class="google-form-iframe"
+          title="Request Quotation Form"
+          allow="fullscreen">
+          <p>If the form doesn't load, please <a href="https://forms.gle/oQYGh249f33ZDssd6" target="_blank">click here to open the form in a new tab</a>.</p>
+        </iframe>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="img/gravity consultancy logo.png" alt="Gravity Consultancy logo">
+          <p>Designs That Speak.</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#gallery">Plans</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-services">
+          <h3>Our Services</h3>
+          <ul>
+            <li>Building Planning</li>
+            <li>3D Perspective Views(Interior & Exterior)</li>
+            <li>Project Estimates</li>
+            <li>Structural Drawing</li>
+            <li>Soil Test</li>
+            <li>Site Supervision</li>
+            <li>Construction</li>
+          </ul>   
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p><strong>Phone:</strong> +91 9932253566</p>
+          <p><strong>Address:</strong><br>Makarampur, Bolpur, West Bengal 731204, India</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3654.1622087604633!2d87.69786069999999!3d23.670156499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQwJzEyLjYiTiA4N8KwNDEnNTIuMyJF!5e0!3m2!1sen!2sin!4v1760422797572!5m2!1sen!2sin"></iframe>
+        <p>© <span id="year"></span> Gravity Consultancy — All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
