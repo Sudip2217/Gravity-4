@@ -793,6 +793,106 @@ html {
   transition: opacity 0.6s ease;
 }
 
+/* Thank You Message Styles */
+.thank-you-message {
+  margin-bottom: 30px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(212,175,55,0.1));
+  border: 2px solid rgba(212,175,55,0.3);
+  border-radius: 16px;
+  text-align: center;
+  animation: fadeIn 0.6s ease, slideUp 0.6s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px rgba(212,175,55,0.1);
+}
+
+.thank-you-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.thank-you-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: bold;
+  animation: scaleIn 0.5s ease 0.2s both;
+  box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+}
+
+.thank-you-message h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.thank-you-message p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.thank-you-sub {
+  color: var(--gold) !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+  margin-top: 10px !important;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .thank-you-message {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .thank-you-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .thank-you-message h3 {
+    font-size: 1.6rem;
+  }
+  
+  .thank-you-message p {
+    font-size: 1rem;
+  }
+}
+
 .contact-left {
   background: rgba(0, 0, 0, 0.2); 
   border: 2px solid rgba(255, 255, 255, 0.03);
@@ -1323,5 +1423,61 @@ html {
   .gallery1-card img { height: 480px; }
   .gallery1-grid { gap: 30px; }
   .gallery1-container { max-width: 1400px; }
+}
+
+/* QUOTATION FORM PAGE STYLES */
+.form-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 20px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #e6eef8;
+  margin-bottom: 10px;
+}
+
+.form-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.form-wrapper {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.google-form-iframe {
+  width: 100%;
+  min-height: 1200px;
+  border: none;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    margin: 30px auto;
+    padding: 20px 15px;
+  }
+  .form-header h1 {
+    font-size: 2rem;
+  }
+  .form-wrapper {
+    padding: 20px;
+  }
+  .google-form-iframe {
+    min-height: 1000px;
+  }
 }
 
