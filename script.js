@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Contact Form Submission Handler
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm");
 
@@ -116,17 +117,26 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
 
-        // Send form data to Google Apps Script
+        // Send form data via Formspree
         const response = await fetch(contactForm.action, {
           method: "POST",
           body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         });
 
         if (response.ok) {
-          showSuccessMessage(contactForm, "✅ Thank you! Your message has been sent successfully.");
+          // Show success message
+          showSuccessThankYouMessage(contactForm);
           contactForm.reset();
         } else {
-          showSuccessMessage(contactForm, "⚠️ Something went wrong. Please try again later.", true);
+          const data = await response.json();
+          if (data.errors) {
+            showSuccessMessage(contactForm, "⚠️ " + data.errors.map(error => error.message).join(", "), true);
+          } else {
+            showSuccessMessage(contactForm, "⚠️ Something went wrong. Please try again later.", true);
+          }
         }
       } catch (error) {
         console.error("Form submission error:", error);
@@ -140,17 +150,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Reset Button Functionality
     const resetBtn = contactForm.querySelector('button[type="reset"]');
-    resetBtn.addEventListener("click", () => {
-      contactForm.reset();
-      const msg = contactForm.querySelector(".success-message");
-      if (msg) msg.remove();
-    });
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        contactForm.reset();
+        const msg = contactForm.querySelector(".success-message, .thank-you-message");
+        if (msg) msg.remove();
+      });
+    }
   }
 
   // Helper Function: Show success or error message
   function showSuccessMessage(form, message, isError = false) {
     // Remove previous messages
-    const oldMsg = form.querySelector(".success-message");
+    const oldMsg = form.querySelector(".success-message, .thank-you-message");
     if (oldMsg) oldMsg.remove();
 
     const msg = document.createElement("div");
@@ -161,11 +173,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.appendChild(msg);
 
-    // Auto fade out
+    // Auto fade out after 5 seconds
     setTimeout(() => {
       msg.classList.add("fade-out");
       setTimeout(() => msg.remove(), 600);
-    }, 4000);
+    }, 5000);
+  }
+
+  // Helper Function: Show beautiful thank you message
+  function showSuccessThankYouMessage(form) {
+    // Remove previous messages
+    const oldMsg = form.querySelector(".success-message, .thank-you-message");
+    if (oldMsg) oldMsg.remove();
+
+    const thankYouMsg = document.createElement("div");
+    thankYouMsg.classList.add("thank-you-message");
+    thankYouMsg.innerHTML = `
+      <div class="thank-you-content">
+        <div class="thank-you-icon">✓</div>
+        <h3>Thank You!</h3>
+        <p>The form was submitted successfully.</p>
+        <p class="thank-you-sub">We'll get back to you soon!</p>
+      </div>
+    `;
+
+    form.insertBefore(thankYouMsg, form.firstChild);
+
+    // Scroll to message
+    thankYouMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Don't auto fade out - let user close it or stay visible
   }
 });
 
